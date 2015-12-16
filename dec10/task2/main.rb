@@ -41,7 +41,7 @@ def parseRow(row)
 		appended.gsub! /\\/, "\\\\\\"
 	end
 
-	appended = '"' + appended + '"'
+	appended = '"' << appended << '"'
 
 	return literalLength, appended.length
 end
@@ -59,8 +59,8 @@ while row = file.gets# and $line < 30
 
 	literal, newLiteral = parseRow(row)
 
-	stringLiterals = stringLiterals + literal
-	newStringLiterals = newStringLiterals + newLiteral
+	stringLiterals += literal
+	newStringLiterals += newLiteral
 end
 file.close
 
